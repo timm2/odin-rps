@@ -30,6 +30,34 @@ function computerPlay() {
         return "scissors";
     }
 }
-console.log(computerPlay());
-console.log(computerPlay());
-console.log(computerPlay());
+
+function playRound(playerSelection, computerSelection){
+    const lowSelect = playerSelection.toLowerCase();
+    if (lowSelect == computerSelection){
+        return "It's a Draw!";
+    }
+    if (lowSelect == "rock"){
+        if (computerSelection == "paper"){
+            return "You Lose! Paper beats Rock";
+        }else if (computerSelection == "scissors") {
+            return "You Win! Rock beats Scissors";
+        }
+    }
+    if (lowSelect == "paper"){
+        if (computerSelection == "scissors"){
+            return "You Lose! Scissors beats Paper";
+        }else if (computerSelection == "rock") {
+            return "You Win! Paper beats Rock";
+        }
+    }
+    if (lowSelect == "scissors"){
+        if (computerSelection == "rock"){
+            return "You Lose! Rock beats Scissors";
+        }else if (computerSelection == "paper") {
+            return "You Win! Scissors beats Paper";
+        }
+    }
+}
+const pSelect = "scissors";
+const cSelect = "scissors";
+console.log(playRound(pSelect, cSelect));
