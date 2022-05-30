@@ -58,6 +58,29 @@ function playRound(playerSelection, computerSelection){
         }
     }
 }
-const pSelect = "scissors";
-const cSelect = "scissors";
-console.log(playRound(pSelect, cSelect));
+function game(){
+    let playerWins = 0;
+    let compWins = 0;
+    for (let i = 0; i < 5; ++i){
+        let playerSelection = prompt("Enter your choice");
+        let computerSelection = computerPlay();
+        let result = playRound(playerSelection, computerSelection);
+        console.log(result);
+        if (result.search("Draw") != -1){
+            continue;
+        }
+        else if (result.search("Win") == -1){
+            ++compWins;
+        }else{
+            ++playerWins;
+        }
+    }
+    if (playerWins > compWins){
+        console.log("You Win!");
+    }else if (playerWins < compWins){
+        console.log("You Lose!");
+    }else{
+        console.log("It's a Draw!")
+    }
+}
+game();
