@@ -61,7 +61,7 @@ function playRound(playerSelection, computerSelection){
 function game(){
     let playerWins = 0;
     let compWins = 0;
-    for (let i = 0; i < 5; ++i){
+    /*for (let i = 0; i < 5; ++i){
         let playerSelection = prompt("Enter your choice");
         let computerSelection = computerPlay();
         let result = playRound(playerSelection, computerSelection);
@@ -74,7 +74,7 @@ function game(){
         }else{
             ++playerWins;
         }
-    }
+    }*/
     if (playerWins > compWins){
         console.log("You Win!");
     }else if (playerWins < compWins){
@@ -83,4 +83,21 @@ function game(){
         console.log("It's a Draw!")
     }
 }
+const rock = document.querySelector('#rock');
+rock.addEventListener('click', () => {
+    const computer = computerPlay();
+    console.log(playRound('rock', computer));
+});
+
+const paper = document.querySelector('#paper');
+paper.addEventListener('click', () => {
+    const computer = computerPlay();
+    console.log(playRound('paper', computer));
+});
+
+const scissors = document.querySelector('#scissors');
+scissors.addEventListener('click', () => {
+    const computer = computerPlay();
+    console.log(playRound('scissors', computer));
+});
 game();
